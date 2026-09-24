@@ -13,6 +13,7 @@ function escapeHtml(value: string) {
 export async function POST(request: Request) {
   const apiKey = process.env.RESEND_API_KEY;
   const toEmail = process.env.CONTACT_TO_EMAIL;
+  const bccEmail = process.env.CONTACT_BCC_EMAIL;
   const fromEmail =
     process.env.CONTACT_FROM_EMAIL ?? "Chilled As Air Conditioning <onboarding@resend.dev>";
 
@@ -50,6 +51,7 @@ export async function POST(request: Request) {
     const { error } = await resend.emails.send({
       from: fromEmail,
       to: toEmail,
+      bcc: bccEmail || undefined,
       replyTo: email || undefined,
       subject: `NEW LEAD: Quote request from ${name}`,
       html: `
