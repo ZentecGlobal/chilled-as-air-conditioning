@@ -4,7 +4,10 @@ export const business = {
   name: "Chilled As Air Conditioning",
   ownerFirstName: "Jon",
   phoneDisplay: "0473 789 644",
-  phoneHref: "tel:0473789644",
+  phoneHref: "tel:+61473789644",
+  googleProfileUrl: "https://www.google.com/maps?cid=8066028812620994747",
+  mapEmbedSrc:
+    "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d160000!2d151.6016738!3d-26.4010316!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2ae478371d8d8acb%3A0x6ff04a782c5718bb!2sChilled%20As%20Air%20Conditioning!5e0!3m2!1sen!2sau!4v1790300000000!5m2!1sen!2sau",
   email: "chilledasairconditioning@gmail.com",
   location: "Nanango QLD 4615",
   region: "South Burnett",

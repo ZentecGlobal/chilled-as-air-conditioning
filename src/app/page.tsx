@@ -428,7 +428,7 @@ export default function HomePage() {
               Conditioning on Google.
             </p>
             <a
-              href="https://www.google.com/search?q=Chilled+As+Air+Conditioning+Nanango+QLD+reviews"
+              href={business.googleProfileUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="mt-6 inline-flex items-center gap-2 rounded-xl border-2 border-navy bg-white px-5 py-2.5 font-semibold text-navy shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:bg-navy hover:text-white hover:shadow-md"
@@ -543,7 +543,7 @@ export default function HomePage() {
               </span>
               <iframe
                 title="Chilled As Air Conditioning service area map"
-                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d412685.71249218535!2d151.835091!3d-26.752214!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b95b2260013b995%3A0x400eef17f20bfc0!2sNanango%20QLD%204615%2C%20Australia!5e1!3m2!1sen!2sus!4v1790252721153!5m2!1sen!2sus"
+                src={business.mapEmbedSrc}
                 className="absolute inset-0 h-full w-full grayscale-[15%]"
                 style={{ border: 0 }}
                 loading="lazy"

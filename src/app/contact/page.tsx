@@ -118,7 +118,7 @@ export default function ContactPage() {
               <div className="relative h-full min-h-[280px] overflow-hidden rounded-2xl border-4 border-white shadow-lg">
                 <iframe
                   title="Chilled As Air Conditioning service area map"
-                  src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d412685.71249218535!2d151.835091!3d-26.752214!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b95b2260013b995%3A0x400eef17f20bfc0!2sNanango%20QLD%204615%2C%20Australia!5e1!3m2!1sen!2sus!4v1790252721153!5m2!1sen!2sus"
+                  src={business.mapEmbedSrc}
                   className="absolute inset-0 h-full w-full grayscale-[15%]"
                   style={{ border: 0 }}
                   loading="lazy"

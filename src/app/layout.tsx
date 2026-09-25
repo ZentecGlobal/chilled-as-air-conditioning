@@ -73,7 +73,7 @@ const localBusinessJsonLd = {
   name: business.name,
   image: `${siteUrl}/images/logo/chilled-as-logo-white-text.png`,
   url: siteUrl,
-  telephone: business.phoneHref.replace("tel:", "+61"),
+  telephone: business.phoneHref.replace("tel:", ""),
   email: business.email,
   priceRange: "$$",
   address: {
@@ -89,7 +89,8 @@ const localBusinessJsonLd = {
     { "@type": "City", name: "Crows Nest" },
     { "@type": "AdministrativeArea", name: "South Burnett" },
   ],
-  sameAs: [],
+  sameAs: [business.googleProfileUrl],
+  hasMap: business.googleProfileUrl,
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {

@@ -110,9 +110,6 @@ p {
   transform: translateX(120%);
 }
 
-.btn-shine:active {
-  transform: scale(0.98);
-}
 
 @media (prefers-reduced-motion: reduce) {
   .btn-shine::after {
@@ -137,5 +134,22 @@ p {
 @media (prefers-reduced-motion: reduce) {
   .animate-tilt-soft {
     animation: none;
+  }
+}
+
+:is(a, button):where([class*="rounded-xl"], [class*="rounded-full"], [class*="rounded-lg"]) {
+  -webkit-tap-highlight-color: transparent;
+  transition-property: color, background-color, border-color, box-shadow, transform, translate, scale, opacity;
+  transition-duration: 200ms;
+}
+
+:is(a, button):where([class*="rounded-xl"], [class*="rounded-full"], [class*="rounded-lg"]):active {
+  scale: 0.94;
+  transition-duration: 90ms;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :is(a, button):where([class*="rounded-xl"], [class*="rounded-full"], [class*="rounded-lg"]):active {
+    scale: 1;
   }
 }
