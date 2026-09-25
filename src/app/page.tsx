@@ -11,6 +11,7 @@ import WorkMarquee, { type MarqueePhoto } from "@/components/ui/WorkMarquee";
 import HeroFormPanel from "@/components/ui/HeroFormPanel";
 import HeroBackgroundPhoto from "@/components/ui/HeroBackgroundPhoto";
 import HeroDecor from "@/components/ui/HeroDecor";
+import HeroHeadline from "@/components/ui/HeroHeadline";
 import AboutPhotoFrame from "@/components/ui/AboutPhotoFrame";
 import ContactForm from "@/components/ui/ContactForm";
 import FAQ from "@/components/ui/FAQ";
@@ -168,12 +169,8 @@ export default function HomePage() {
               </span>
             </FadeIn>
             <FadeIn delay={0.1}>
-              <div className="mt-6 border-l-4 border-navy pl-5">
-                <h1 className="bg-gradient-to-r from-white to-brand-blue bg-clip-text text-4xl font-extrabold leading-tight tracking-tight text-transparent md:text-6xl">
-                  Your Comfort,
-                  <br />
-                  Our Priority
-                </h1>
+              <div className="mt-6 border-l-4 border-brand-blue/70 pl-5">
+                <HeroHeadline />
                 <p className="mt-6 max-w-xl text-lg leading-relaxed text-slate-100 [text-shadow:0_1px_10px_rgba(11,36,64,0.7)]">
                   G&apos;day, I&apos;m Jon, the bloke you&apos;ll actually see
                   turn up at your place. I run {business.name} out of Nanango,
@@ -200,7 +197,7 @@ export default function HomePage() {
                 </a>
                 <Link
                   href="/contact"
-                  className="group inline-flex items-center gap-2.5 rounded-xl bg-gradient-to-r from-navy to-navy-dark py-2 pl-2 pr-6 font-semibold text-white shadow-md transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-navy/30"
+                  className="group inline-flex items-center gap-2.5 rounded-xl border border-white/30 bg-white/10 py-2 pl-2 pr-6 font-semibold text-white shadow-md backdrop-blur-sm transition-all duration-200 hover:-translate-y-0.5 hover:border-white hover:bg-white hover:text-navy hover:shadow-lg"
                 >
                   <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-white/15 transition-colors duration-200 group-hover:bg-white/25">
                     <Send className="h-4 w-4 text-white" aria-hidden="true" />
