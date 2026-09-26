@@ -9,16 +9,13 @@ import {
   Phone,
   Send,
   ShieldCheck,
-  Snowflake,
   Wrench,
 } from "lucide-react";
 import Section from "@/components/ui/Section";
-import Container from "@/components/ui/Container";
 import FadeIn from "@/components/ui/FadeIn";
 import Button from "@/components/ui/Button";
 import FAQ from "@/components/ui/FAQ";
 import ContactSection from "@/components/ui/ContactSection";
-import DarkSectionDecor from "@/components/ui/DarkSectionDecor";
 import { business, serviceAreas } from "@/lib/site-data";
 
 const faqItems = [
@@ -199,60 +196,9 @@ export default function AboutPage() {
         </div>
       </Section>
 
-      <section className="relative overflow-hidden bg-gradient-to-br from-navy-dark via-navy to-navy-dark py-10 text-white md:py-14">
-        <DarkSectionDecor />
-        <Snowflake
-          aria-hidden="true"
-          className="pointer-events-none absolute right-16 top-10 h-20 w-20 text-white/10"
-          strokeWidth={1}
-        />
-        <div className="relative z-10">
-        <Container>
-          <FadeIn className="relative mx-auto max-w-2xl text-center">
-            <span className="inline-flex items-center gap-2 rounded-full bg-white/10 py-1.5 pl-1.5 pr-4 text-sm font-semibold text-white backdrop-blur-sm">
-              <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-brand-blue to-navy text-white">
-                <MessageCircle className="h-3.5 w-3.5" aria-hidden="true" />
-              </span>
-              Get In Touch
-            </span>
-            <h2 className="mt-4 text-2xl font-extrabold md:text-3xl">
-              Got a Job for Me?
-            </h2>
-            <p className="mt-3 text-base leading-relaxed text-slate-300">
-              Got a job you need done properly? Give me a call.
-            </p>
-            <a
-              href={business.phoneHref}
-              className="mt-4 inline-block text-2xl font-extrabold tracking-tight text-white transition-colors hover:text-brand-blue md:text-3xl"
-            >
-              {business.phoneDisplay}
-            </a>
-            <div className="mt-6 flex flex-wrap justify-center gap-3">
-              <a
-                href={business.phoneHref}
-                className="group inline-flex items-center gap-2.5 rounded-xl btn-shine relative overflow-hidden bg-gradient-to-r from-brand-blue to-navy py-2 pl-2 pr-6 font-semibold text-white shadow-md transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-brand-blue/30"
-              >
-                <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-white/20 transition-colors duration-200 group-hover:bg-white/30">
-                  <Phone className="h-4 w-4 text-white" aria-hidden="true" />
-                </span>
-                Call Jon Now
-              </a>
-              <Button
-                href="/contact"
-                variant="secondary"
-                icon={<Send className="h-4 w-4" aria-hidden="true" />}
-              >
-                Get a Free Quote
-              </Button>
-            </div>
-          </FadeIn>
-        </Container>
-        </div>
-      </section>
-
       <ContactSection />
 
-      <FAQ items={faqItems} title="About Chilled As Air Conditioning" />
+      <FAQ items={faqItems} title="About Chilled As Questions" />
     </>
   );
 }
