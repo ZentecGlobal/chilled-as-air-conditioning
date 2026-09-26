@@ -18,6 +18,9 @@ import FadeIn from "@/components/ui/FadeIn";
 import Button from "@/components/ui/Button";
 import ServiceIcon from "@/components/ui/ServiceIcon";
 import FAQ from "@/components/ui/FAQ";
+import ContactSection from "@/components/ui/ContactSection";
+import PageHeroBackdrop from "@/components/ui/PageHeroBackdrop";
+import RevealTitle from "@/components/ui/RevealTitle";
 import DarkSectionDecor from "@/components/ui/DarkSectionDecor";
 import { business, coreServices, services } from "@/lib/site-data";
 
@@ -60,9 +63,9 @@ const coreServicePhotos: Record<
     alt: "Newly installed Dimplex split system indoor unit by Chilled As Air Conditioning",
   },
   "ducted-air-conditioning": {
-    src: "/images/unsorted-general/20260709_094540.jpg",
-    alt: "Outdoor air conditioning unit installed by Chilled As Air Conditioning",
-    position: "50% 12%",
+    src: "/images/ducted/ducted-rooftop-unit.jpg",
+    alt: "A rooftop ducted air conditioning outdoor unit serviced by Chilled As Air Conditioning",
+    position: "50% 55%",
   },
   installations: {
     src: "/images/unsorted-general/20260707_115009.jpg",
@@ -80,8 +83,8 @@ const otherServices = services.filter((s) => !s.hasDedicatedPage);
 export default function ServicesPage() {
   return (
     <>
-      <section className="relative overflow-hidden bg-gradient-to-br from-navy-dark via-navy to-navy-dark py-16 text-white md:py-24">
-        <DarkSectionDecor />
+      <section className="relative overflow-hidden bg-gradient-to-br from-navy-dark via-navy to-navy-dark py-20 text-white md:py-32">
+        <PageHeroBackdrop src="/images/servicing-cleaning/deep-cleans/IMG_0010.jpg" position="50% 22%" />
         <Snowflake
           aria-hidden="true"
           className="pointer-events-none absolute right-16 top-10 h-20 w-20 text-white/10"
@@ -97,10 +100,8 @@ export default function ServicesPage() {
                 </span>
                 What I Cover
               </span>
-              <h1 className="mt-4 text-4xl font-extrabold md:text-5xl">
-                All My <span className="text-brand-blue">Services</span>
-              </h1>
-              <p className="mt-4 text-lg leading-relaxed text-slate-300">
+              <RevealTitle className="mt-4 text-4xl font-extrabold md:text-5xl" text="All My" accent="Services" />
+              <p className="mt-4 text-lg leading-relaxed text-slate-100 [text-shadow:0_1px_12px_rgba(11,36,64,0.8)]">
                 Everything I cover, from a straightforward split system
                 install to ongoing maintenance for motels and rentals. If
                 you can&apos;t see exactly what you need, call me anyway,
@@ -321,6 +322,8 @@ export default function ServicesPage() {
         </Container>
         </div>
       </section>
+
+      <ContactSection />
 
       <FAQ items={faqItems} />
     </>

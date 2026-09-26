@@ -6,6 +6,7 @@ import FadeIn from "@/components/ui/FadeIn";
 import ContactForm from "@/components/ui/ContactForm";
 import FAQ from "@/components/ui/FAQ";
 import DarkSectionDecor from "@/components/ui/DarkSectionDecor";
+import RevealTitle from "@/components/ui/RevealTitle";
 import { business } from "@/lib/site-data";
 
 const faqItems = [
@@ -51,9 +52,7 @@ export default function ContactPage() {
                 </span>
                 Free Quotes, No Pressure
               </span>
-              <h1 className="mt-4 text-4xl font-extrabold md:text-5xl">
-                Get In <span className="text-brand-blue">Touch</span>
-              </h1>
+              <RevealTitle className="mt-4 text-4xl font-extrabold md:text-5xl" text="Get In" accent="Touch" />
               <p className="mt-4 text-lg leading-relaxed text-slate-300">
                 Easiest way to reach me is a phone call, but email or the
                 form below both work too. Free quotes, straight answers,

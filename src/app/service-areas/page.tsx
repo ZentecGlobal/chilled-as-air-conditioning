@@ -6,6 +6,9 @@ import Container from "@/components/ui/Container";
 import FadeIn from "@/components/ui/FadeIn";
 import Button from "@/components/ui/Button";
 import FAQ from "@/components/ui/FAQ";
+import ContactSection from "@/components/ui/ContactSection";
+import PageHeroBackdrop from "@/components/ui/PageHeroBackdrop";
+import RevealTitle from "@/components/ui/RevealTitle";
 import DarkSectionDecor from "@/components/ui/DarkSectionDecor";
 import { business, serviceAreas } from "@/lib/site-data";
 
@@ -36,8 +39,8 @@ export const metadata: Metadata = {
 export default function ServiceAreasPage() {
   return (
     <>
-      <section className="relative overflow-hidden bg-gradient-to-br from-navy-dark via-navy to-navy-dark py-16 text-white md:py-24">
-        <DarkSectionDecor />
+      <section className="relative overflow-hidden bg-gradient-to-br from-navy-dark via-navy to-navy-dark py-20 text-white md:py-32">
+        <PageHeroBackdrop src="/images/unsorted-general/20260305_092358.jpg" position="50% 40%" />
         <Snowflake
           aria-hidden="true"
           className="pointer-events-none absolute right-16 top-10 h-20 w-20 text-white/10"
@@ -53,10 +56,8 @@ export default function ServiceAreasPage() {
                 </span>
                 Where I Work
               </span>
-              <h1 className="mt-4 text-4xl font-extrabold md:text-5xl">
-                Service <span className="text-brand-blue">Areas</span>
-              </h1>
-              <p className="mt-4 text-lg leading-relaxed text-slate-300">
+              <RevealTitle className="mt-4 text-4xl font-extrabold md:text-5xl" text="Service" accent="Areas" />
+              <p className="mt-4 text-lg leading-relaxed text-slate-100 [text-shadow:0_1px_12px_rgba(11,36,64,0.8)]">
                 I&apos;m based in Nanango and cover the wider South Burnett
                 region. Here&apos;s where you&apos;ll find me most, but if
                 your town isn&apos;t listed, call anyway, I travel
@@ -185,6 +186,8 @@ export default function ServiceAreasPage() {
         </Container>
         </div>
       </section>
+
+      <ContactSection />
 
       <FAQ items={faqItems} title="Service Area Questions" />
     </>

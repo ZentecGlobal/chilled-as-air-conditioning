@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight, Camera, Check, ChevronRight, Clock, ExternalLink, Mail, MapPin, MessageCircle, Phone, Send, Snowflake, Star, Wrench } from "lucide-react";
+import { ArrowRight, Camera, Check, ChevronRight, ExternalLink, MapPin, Phone, Send, Snowflake, Star, Wrench } from "lucide-react";
 import Section from "@/components/ui/Section";
 import Container from "@/components/ui/Container";
 import FadeIn from "@/components/ui/FadeIn";
@@ -13,8 +13,8 @@ import HeroBackgroundPhoto from "@/components/ui/HeroBackgroundPhoto";
 import HeroDecor from "@/components/ui/HeroDecor";
 import HeroHeadline from "@/components/ui/HeroHeadline";
 import AboutPhotoFrame from "@/components/ui/AboutPhotoFrame";
-import ContactForm from "@/components/ui/ContactForm";
 import FAQ from "@/components/ui/FAQ";
+import ContactSection from "@/components/ui/ContactSection";
 import DarkSectionDecor from "@/components/ui/DarkSectionDecor";
 import { business, coreServices, serviceAreas } from "@/lib/site-data";
 
@@ -90,6 +90,22 @@ const workMarqueePhotos: MarqueePhoto[] = [
     src: "/images/unsorted-general/20260227_170243.jpg",
     alt: "On-site air conditioning maintenance work, Chilled As Air Conditioning",
   },
+  {
+    src: "/images/ducted/ducted-rooftop-unit.jpg",
+    alt: "Rooftop ducted air conditioning outdoor unit serviced by Chilled As Air Conditioning",
+  },
+  {
+    src: "/images/ducted/ducted-filter-dirty.jpg",
+    alt: "A heavily clogged ducted air conditioning filter before cleaning",
+  },
+  {
+    src: "/images/ducted/ducted-return-grille.jpg",
+    alt: "A ducted return air grille removed for cleaning",
+  },
+  {
+    src: "/images/ducted/ducted-filter-check.jpg",
+    alt: "Checking a dirty ducted air conditioning filter by hand",
+  },
 ];
 
 const heroBackgroundPhoto = {
@@ -110,9 +126,9 @@ const homepageServicePhotos: Record<string, SlideshowPhoto[]> = {
   ],
   "ducted-air-conditioning": [
     {
-      src: "/images/unsorted-general/20260709_094540.jpg",
-      alt: "Outdoor air conditioning unit installed by Chilled As Air Conditioning",
-      position: "object-[50%_12%]",
+      src: "/images/ducted/ducted-rooftop-unit.jpg",
+      alt: "A rooftop ducted air conditioning outdoor unit serviced by Chilled As Air Conditioning",
+      position: "object-[50%_55%]",
     },
   ],
   installations: [
@@ -253,7 +269,7 @@ export default function HomePage() {
               </span>
               Meet the Bloke Behind the Van
             </span>
-            <h2 className="mt-4 text-2xl font-bold text-navy md:text-3xl">
+            <h2 className="mt-4 text-3xl font-extrabold text-navy md:text-4xl">
               About <span className="text-brand-blue">Jon</span>
             </h2>
             <p className="mt-4 max-w-xl leading-relaxed text-slate-700">
@@ -264,19 +280,24 @@ export default function HomePage() {
               properly, and doesn&apos;t disappear afterwards if something
               needs sorting out.
             </p>
-            <ul className="mt-5 space-y-2.5">
-              {["Turns up when he says he will", "Does the job properly", "Still around if something needs sorting"].map((t) => (
-                <li key={t} className="flex items-center gap-3 font-medium text-navy">
-                  <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-brand-blue/15 text-brand-blue">
-                    <Check className="h-3.5 w-3.5" strokeWidth={3} aria-hidden="true" />
-                  </span>
-                  {t}
+            <ul className="mt-6 grid max-w-xl grid-cols-1 gap-3">
+              {["Turns up when he says he will", "Does the job properly", "Still around if something needs sorting"].map((t, i) => (
+                <li key={t}>
+                  <FadeIn delay={0.1 + i * 0.1}>
+                    <div className="group flex items-center gap-3 rounded-2xl border border-brand-blue/15 bg-white p-3 font-medium text-navy shadow-sm transition-all duration-300 hover:translate-x-1.5 hover:border-brand-blue/40 hover:shadow-lg hover:shadow-brand-blue/10">
+                      <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-brand-blue to-navy text-white shadow-md transition-transform duration-300 group-hover:scale-110">
+                        <Check className="h-4 w-4" strokeWidth={3} aria-hidden="true" />
+                      </span>
+                      {t}
+                    </div>
+                  </FadeIn>
                 </li>
               ))}
             </ul>
-            <Link
+            <div className="mt-7 flex flex-wrap gap-3">
+              <Link
               href="/about"
-              className="group mt-6 inline-flex items-center gap-2 rounded-xl border-2 border-navy px-5 py-2.5 font-semibold text-navy shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:bg-navy hover:text-white hover:shadow-md"
+              className="group inline-flex items-center gap-2 rounded-xl border-2 border-navy px-5 py-2.5 font-semibold text-navy shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:bg-navy hover:text-white hover:shadow-md"
             >
               More about Jon
               <ArrowRight
@@ -284,6 +305,14 @@ export default function HomePage() {
                 aria-hidden="true"
               />
             </Link>
+              <a
+                href={business.phoneHref}
+                className="btn-shine relative inline-flex items-center gap-2 overflow-hidden rounded-xl border-2 border-transparent bg-gradient-to-r from-brand-blue to-navy px-5 py-2.5 font-semibold text-white shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-brand-blue/30"
+              >
+                <Phone className="h-4 w-4" aria-hidden="true" />
+                Call Jon
+              </a>
+            </div>
           </FadeIn>
         </div>
       </Section>
@@ -306,13 +335,13 @@ export default function HomePage() {
         />
         <Container>
           <FadeIn>
-            <div className="flex items-center gap-2">
-              <span className="h-px w-6 bg-brand-blue" aria-hidden="true" />
-              <span className="text-xs font-bold uppercase tracking-widest text-brand-blue">
-                Our Services
+            <span className="inline-flex items-center gap-2 rounded-full bg-white py-1.5 pl-1.5 pr-4 text-sm font-semibold text-navy shadow-sm">
+              <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-brand-blue to-navy text-white">
+                <Wrench className="h-3.5 w-3.5" aria-hidden="true" />
               </span>
-            </div>
-            <h2 className="mt-2 text-3xl font-extrabold text-navy md:text-4xl">
+              Our Services
+            </span>
+            <h2 className="mt-4 text-3xl font-extrabold text-navy md:text-4xl">
               What I <span className="text-brand-blue">Do</span>
             </h2>
             <p className="mt-2 text-slate-700">
@@ -334,34 +363,36 @@ export default function HomePage() {
                     aria-hidden="true"
                     className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-brand-blue via-brand-blue to-navy opacity-0 transition-opacity duration-300 group-hover:opacity-100"
                   />
-                  {photos && photos.length > 0 ? (
-                    <div className="overflow-hidden rounded-2xl border-4 border-brand-blue-light shadow-lg transition-transform duration-300 group-hover:scale-[1.03]">
-                      <MiniSlideshow photos={photos} />
-                    </div>
-                  ) : (
-                    <div className="relative flex aspect-video w-full items-center justify-center overflow-hidden rounded-2xl border-4 border-brand-blue-light bg-gradient-to-br from-navy-dark via-navy to-navy-dark shadow-lg">
-                      <div aria-hidden="true" className="absolute -left-10 -top-10 h-40 w-40 rounded-full bg-brand-blue/30 blur-3xl" />
-                      <ServiceIcon slug={service.slug} className="relative h-14 w-14 text-white/90" />
-                    </div>
-                  )}
-                  <div className="mt-4 flex items-center gap-3">
-                    <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-brand-blue to-navy text-white shadow-md transition-all duration-300 group-hover:scale-110 group-hover:shadow-brand-blue/40">
+                  <div className="relative">
+                    {photos && photos.length > 0 ? (
+                      <div className="overflow-hidden rounded-2xl border-4 border-brand-blue-light shadow-lg transition-transform duration-300 group-hover:scale-[1.03]">
+                        <MiniSlideshow photos={photos} />
+                      </div>
+                    ) : (
+                      <div className="relative flex aspect-video w-full items-center justify-center overflow-hidden rounded-2xl border-4 border-brand-blue-light bg-gradient-to-br from-navy-dark via-navy to-navy-dark shadow-lg">
+                        <div aria-hidden="true" className="absolute -left-10 -top-10 h-40 w-40 rounded-full bg-brand-blue/30 blur-3xl" />
+                        <ServiceIcon slug={service.slug} className="relative h-14 w-14 text-white/90" />
+                      </div>
+                    )}
+                    <span className="absolute left-3 top-3 z-10 rounded-full bg-white/90 px-2.5 py-1 text-xs font-extrabold tracking-wider text-navy shadow-md backdrop-blur-sm">
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                    <span className="absolute -bottom-6 left-4 z-10 flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br from-brand-blue to-navy text-white shadow-lg ring-4 ring-white transition-all duration-300 group-hover:scale-110 group-hover:rotate-6 group-hover:shadow-brand-blue/40">
                       <ServiceIcon slug={service.slug} className="h-6 w-6" />
                     </span>
-                    <h3 className="text-xl font-semibold text-navy">{service.name}</h3>
                   </div>
+                  <h3 className="mt-9 text-xl font-bold leading-snug text-navy">{service.name}</h3>
                   <p className="mt-2 flex-1 text-slate-700">
                     {service.shortDescription}
                   </p>
                   <Link
                     href={service.href}
-                    className="group/link mt-3 inline-flex items-center gap-1 font-semibold text-brand-blue underline decoration-brand-blue/40 underline-offset-4 transition-colors hover:text-brand-blue-dark"
+                    className="group/link mt-5 flex items-center justify-between border-t border-slate-100 pt-4 font-semibold text-brand-blue transition-colors hover:text-brand-blue-dark"
                   >
                     Learn more
-                    <ArrowRight
-                      className="h-4 w-4 transition-transform duration-200 group-hover/link:translate-x-1"
-                      aria-hidden="true"
-                    />
+                    <span className="flex h-9 w-9 items-center justify-center rounded-full bg-brand-blue-light text-brand-blue transition-all duration-300 group-hover/link:translate-x-1 group-hover/link:bg-brand-blue group-hover/link:text-white">
+                      <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                    </span>
                   </Link>
                 </div>
                 </FadeIn>
@@ -608,76 +639,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <Section>
-        <div className="grid grid-cols-1 gap-10 md:grid-cols-2">
-          <div className="flex flex-col">
-            <FadeIn>
-              <span className="inline-flex items-center gap-2 rounded-full bg-brand-blue-light py-1.5 pl-1.5 pr-4 text-sm font-semibold text-navy">
-                <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-brand-blue to-navy text-white">
-                  <MessageCircle className="h-3.5 w-3.5" aria-hidden="true" />
-                </span>
-                Get In Touch
-              </span>
-              <h2 className="mt-4 text-3xl font-extrabold text-navy md:text-4xl">
-                Send Jon <span className="text-brand-blue">Your Details</span>
-              </h2>
-              <p className="mt-3 max-w-md leading-relaxed text-slate-700">
-                Fill this in and Jon will get back to you, or reach out
-                directly using any of the details below.
-              </p>
-            </FadeIn>
-            <ul className="mt-8 grid grid-cols-1 gap-4">
-              {[
-                { icon: Phone, label: "Call Jon", value: business.phoneDisplay, href: business.phoneHref },
-                { icon: Mail, label: "Email", value: business.email, href: `mailto:${business.email}` },
-                { icon: MapPin, label: "Based in", value: business.location },
-                { icon: Clock, label: "Quotes", value: "Free on every job" },
-              ].map(({ icon: Icon, label, value, href }, i) => {
-                const inner = (
-                  <>
-                    <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-brand-blue to-navy text-white shadow-md transition-transform duration-300 group-hover:scale-110">
-                      <Icon className="h-5 w-5" aria-hidden="true" />
-                    </span>
-                    <span className="min-w-0">
-                      <span className="block text-xs font-bold uppercase tracking-widest text-brand-blue">
-                        {label}
-                      </span>
-                      <span className="block break-words font-semibold text-navy">{value}</span>
-                    </span>
-                  </>
-                );
-                const cardClass =
-                  "group flex items-center gap-4 rounded-2xl border border-brand-blue/15 bg-white p-4 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-brand-blue/40 hover:shadow-lg hover:shadow-brand-blue/10";
-                return (
-                  <li key={label}>
-                    <FadeIn delay={0.1 + i * 0.08}>
-                      {href ? (
-                        <a href={href} className={cardClass}>
-                          {inner}
-                        </a>
-                      ) : (
-                        <div className={cardClass}>{inner}</div>
-                      )}
-                    </FadeIn>
-                  </li>
-                );
-              })}
-            </ul>
-          </div>
-          <div className="relative">
-            <div
-              aria-hidden="true"
-              className="pointer-events-none absolute -inset-4 -z-10 rounded-[2.5rem] bg-gradient-to-br from-brand-blue/15 via-transparent to-transparent blur-2xl"
-            />
-            <div className="overflow-hidden rounded-2xl border-2 border-brand-blue/20 bg-frost shadow-sm">
-              <div className="h-1.5 w-full bg-gradient-to-r from-brand-blue via-brand-blue to-navy" />
-              <div className="p-6 md:p-8">
-                <ContactForm />
-              </div>
-            </div>
-          </div>
-        </div>
-      </Section>
+      <ContactSection />
 
       <FAQ items={faqItems} />
     </>

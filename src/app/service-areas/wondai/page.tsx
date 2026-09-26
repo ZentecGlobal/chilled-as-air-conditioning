@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import {
+  ArrowRight,
   Clock,
   MapPin,
   MessageCircle,
@@ -16,6 +17,9 @@ import FadeIn from "@/components/ui/FadeIn";
 import Button from "@/components/ui/Button";
 import ServiceIcon from "@/components/ui/ServiceIcon";
 import FAQ from "@/components/ui/FAQ";
+import ContactSection from "@/components/ui/ContactSection";
+import PageHeroBackdrop from "@/components/ui/PageHeroBackdrop";
+import RevealTitle from "@/components/ui/RevealTitle";
 import DarkSectionDecor from "@/components/ui/DarkSectionDecor";
 import { business, coreServices } from "@/lib/site-data";
 
@@ -46,8 +50,8 @@ export const metadata: Metadata = {
 export default function WondaiPage() {
   return (
     <>
-      <section className="relative overflow-hidden bg-gradient-to-br from-navy-dark via-navy to-navy-dark py-16 text-white md:py-24">
-        <DarkSectionDecor />
+      <section className="relative overflow-hidden bg-gradient-to-br from-navy-dark via-navy to-navy-dark py-20 text-white md:py-32">
+        <PageHeroBackdrop src="/images/unsorted-general/20260707_115009.jpg" position="50% 45%" />
         <div className="relative z-10">
         <Container>
           <FadeIn className="mx-auto max-w-2xl text-center">
@@ -57,10 +61,8 @@ export default function WondaiPage() {
               </span>
               Regular Coverage
             </span>
-            <h1 className="mt-5 text-3xl font-extrabold md:text-4xl">
-              Air Conditioning in <span className="text-brand-blue">Wondai</span>
-            </h1>
-            <p className="mt-4 text-lg leading-relaxed text-slate-300">
+            <RevealTitle className="mt-5 text-3xl font-extrabold md:text-4xl" text="Air Conditioning in" accent="Wondai" />
+            <p className="mt-4 text-lg leading-relaxed text-slate-100 [text-shadow:0_1px_12px_rgba(11,36,64,0.8)]">
               I get out to Wondai regularly for installs, servicing, and
               repairs. It&apos;s a quick trip from Nanango, so booking me
               in for a job in Wondai is no trouble at all, just give me
@@ -167,18 +169,20 @@ export default function WondaiPage() {
             <FadeIn key={service.slug} delay={i * 0.1}>
             <Link
               href={service.href}
-              className="group relative flex h-full items-start gap-3 overflow-hidden rounded-3xl border border-white bg-white p-5 shadow-md transition-all duration-300 hover:-translate-y-1.5 hover:border-brand-blue/20 hover:shadow-2xl hover:shadow-brand-blue/10"
+              className="group relative flex h-full flex-col gap-4 overflow-hidden rounded-3xl border border-white bg-white p-5 shadow-md transition-all duration-300 hover:-translate-y-1.5 hover:border-brand-blue/20 hover:shadow-2xl hover:shadow-brand-blue/10"
             >
               <span aria-hidden="true" className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-brand-blue via-brand-blue to-navy opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-              <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-brand-blue to-navy text-white shadow-sm transition-transform duration-300 group-hover:scale-110">
-                <ServiceIcon slug={service.slug} className="h-5 w-5" />
+              <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-brand-blue to-navy text-white shadow-lg shadow-brand-blue/30 transition-transform duration-300 group-hover:-rotate-6 group-hover:scale-110">
+                <ServiceIcon slug={service.slug} className="h-6 w-6" />
               </span>
-              <span>
-                <span className="block font-semibold text-navy">
-                  {service.name}
-                </span>
-                <span className="text-sm text-slate-700">
-                  {service.shortDescription}
+              <span className="flex-1">
+                <span className="block text-lg font-bold text-navy">{service.name}</span>
+                <span className="mt-1 block text-sm leading-relaxed text-slate-700">{service.shortDescription}</span>
+              </span>
+              <span className="flex items-center justify-between border-t border-slate-100 pt-3 text-sm font-semibold text-brand-blue">
+                Learn more
+                <span className="flex h-8 w-8 items-center justify-center rounded-full bg-brand-blue-light transition-all duration-300 group-hover:translate-x-1 group-hover:bg-brand-blue group-hover:text-white">
+                  <ArrowRight className="h-4 w-4" aria-hidden="true" />
                 </span>
               </span>
             </Link>
@@ -246,6 +250,8 @@ export default function WondaiPage() {
         </Container>
         </div>
       </section>
+
+      <ContactSection />
 
       <FAQ items={faqItems} title="Wondai Air Conditioning FAQs" />
     </>

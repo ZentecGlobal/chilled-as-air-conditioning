@@ -17,6 +17,7 @@ import Container from "@/components/ui/Container";
 import FadeIn from "@/components/ui/FadeIn";
 import Button from "@/components/ui/Button";
 import FAQ from "@/components/ui/FAQ";
+import ContactSection from "@/components/ui/ContactSection";
 import DarkSectionDecor from "@/components/ui/DarkSectionDecor";
 import { business, serviceAreas } from "@/lib/site-data";
 
@@ -248,6 +249,8 @@ export default function AboutPage() {
         </Container>
         </div>
       </section>
+
+      <ContactSection />
 
       <FAQ items={faqItems} title="About Chilled As Air Conditioning" />
     </>

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import {
   Building2,
+  Camera,
   CheckCircle2,
   HandCoins,
   Home,
@@ -16,22 +17,26 @@ import FadeIn from "@/components/ui/FadeIn";
 import Button from "@/components/ui/Button";
 import ServiceIcon from "@/components/ui/ServiceIcon";
 import FAQ from "@/components/ui/FAQ";
+import ContactSection from "@/components/ui/ContactSection";
+import IncludedSteps from "@/components/ui/IncludedSteps";
+import WhyChooseCards from "@/components/ui/WhyChooseCards";
+import MediaGallery from "@/components/ui/MediaGallery";
 import RevealImage from "@/components/ui/RevealImage";
 import { business } from "@/lib/site-data";
 
 const faqItems = [
   {
-    question: "Is ducted air conditioning right for my home or business?",
+    question: "Do you install new ducted air conditioning systems?",
     answer:
-      "It depends on your layout, roof space and how you use each room. I'll take a look on site and give you a straight answer, including if a split system would suit you better.",
+      "I keep my ducted work to servicing, repairs and maintenance, for both homes and businesses. Being a one man band, I focus on looking after the systems you already have.",
   },
   {
-    question: "Do you do ducted for both homes and businesses?",
+    question: "Do you service ducted systems for both homes and businesses?",
     answer:
       "Yes, I cover both residential and commercial ducted air conditioning across the South Burnett.",
   },
   {
-    question: "Do you offer free quotes on ducted systems?",
+    question: "Do you offer free quotes on ducted servicing and repairs?",
     answer: "Yes, every job starts with a free, no-pressure quote.",
   },
 ];
@@ -39,7 +44,7 @@ const faqItems = [
 export const metadata: Metadata = {
   title: "Ducted Air Conditioning | Chilled As Air Conditioning",
   description:
-    "Ducted air conditioning for homes and businesses across Nanango and the South Burnett. Call Jon for a free quote.",
+    "Ducted air conditioning servicing, repairs and maintenance for homes and businesses across Nanango and the South Burnett. Call Jon for a free quote.",
 };
 
 const audiences = [
@@ -47,34 +52,69 @@ const audiences = [
     icon: Home,
     title: "For Your Home",
     points: [
-      "Cool the whole house from one system",
-      "Discreet vents instead of units on the wall",
-      "Suits larger family homes, new builds and renovations",
+      "Servicing to keep your ducted system running efficiently",
+      "Repairs when it stops cooling or something's gone wrong",
+      "Filter and grille cleaning",
+      "Regular maintenance so small problems don't become big ones",
     ],
   },
   {
     icon: Building2,
     title: "For Your Business",
     points: [
-      "Even comfort across offices, shops and open floor plans",
-      "One system instead of several separate units",
-      "Quoted on site so it fits how your space is used",
+      "Servicing and maintenance for offices, shops and other commercial spaces",
+      "Repairs to get you back up and running",
+      "Filter and grille cleaning",
+      "Regular scheduled maintenance",
     ],
   },
 ];
 
 const included = [
-  "An on-site look at your space to see if ducted is the right fit",
+  "An on-site look at your system to see what it needs",
   "A clear, free quote before any work begins",
-  "Advice on the right system for your home or business",
-  "Ducted servicing and repairs on most brands",
+  "Servicing, filter and grille cleaning",
+  "Repairs and regular maintenance, for homes and businesses",
+];
+
+const ductedPhotos = [
+  {
+    src: "/images/ducted/ducted-filter-dirty.jpg",
+    alt: "A heavily clogged ducted air conditioning filter before cleaning",
+    caption: "Before: a clogged filter",
+  },
+  {
+    src: "/images/ducted/ducted-return-grille.jpg",
+    alt: "A ducted return air grille removed for cleaning",
+    caption: "Return air grille",
+  },
+  {
+    src: "/images/ducted/ducted-filter-check.jpg",
+    alt: "Checking a dirty ducted air conditioning filter by hand",
+    caption: "Checking the filter",
+  },
+];
+
+const ductedClips = [
+  {
+    src: "/videos/ducted-filter-rinse.mp4",
+    label: "Rinsing a ducted filter panel",
+    caption: "Rinsing a filter panel",
+    poster: "/images/ducted/poster-rinse.jpg",
+  },
+  {
+    src: "/videos/ducted-filter-wash.mp4",
+    label: "Washing a dirty ducted filter",
+    caption: "Washing a dirty filter",
+    poster: "/images/ducted/poster-wash.jpg",
+  },
 ];
 
 const whyChoose = [
   {
     icon: MessageCircle,
     title: "Straight Talking",
-    body: "I'm local, I show up when I say I will, and I'll tell you honestly if ducted isn't the right call.",
+    body: "I'm local, I show up when I say I will, and I'll give you a straight answer on what your system needs.",
   },
   {
     icon: HandCoins,
@@ -84,7 +124,7 @@ const whyChoose = [
   {
     icon: ShieldCheck,
     title: "Backed After the Job",
-    body: "Someone you can actually call if anything comes up, long after the install.",
+    body: "Someone you can actually call if anything comes up, long after the job is done.",
   },
 ];
 
@@ -103,10 +143,9 @@ export default function DuctedPage() {
               </h1>
             </div>
             <p className="mt-4 max-w-xl text-lg leading-relaxed text-slate-700">
-              Comfort through the whole space from one system, tucked neatly
-              out of sight. Whether it&apos;s your home or your business,
-              I&apos;ll look at your place, tell you straight if ducted is the
-              right fit, and quote it before any work begins.
+              Keep your ducted system running the way it should. I look after
+              ducted air conditioning for homes and businesses, with servicing,
+              repairs and maintenance, and I&apos;ll quote it before any work begins.
             </p>
             <div className="mt-6 flex flex-wrap gap-4">
               <a
@@ -133,11 +172,11 @@ export default function DuctedPage() {
             <div className="group relative aspect-[4/3] w-full overflow-hidden rounded-3xl shadow-lg">
               <RevealImage>
                 <Image
-                  src="/images/unsorted-general/20260709_094540.jpg"
-                  alt="Outdoor air conditioning unit installed by Chilled As Air Conditioning"
+                  src="/images/ducted/ducted-rooftop-unit.jpg"
+                  alt="A rooftop ducted air conditioning outdoor unit serviced by Chilled As Air Conditioning"
                   fill
                   sizes="(min-width: 768px) 50vw, 100vw"
-                  style={{ objectPosition: "50% 12%" }}
+                  style={{ objectPosition: "50% 55%" }}
                   className="object-cover transition-transform duration-700 group-hover:scale-105"
                   priority
                 />
@@ -147,7 +186,7 @@ export default function DuctedPage() {
                 className="pointer-events-none absolute inset-0 bg-gradient-to-t from-navy-dark/50 via-transparent to-transparent"
               />
               <p className="absolute bottom-4 left-4 text-sm font-semibold text-white">
-                Homes &amp; businesses across the South Burnett
+                Ducted servicing across the South Burnett
               </p>
             </div>
           </div>
@@ -163,28 +202,37 @@ export default function DuctedPage() {
             Residential &amp; Commercial
           </span>
           <h2 className="mt-4 text-3xl font-extrabold text-navy md:text-4xl">
-            Ducted for <span className="text-brand-blue">Homes and Businesses</span>
+            Ducted Servicing for <span className="text-brand-blue">Homes and Businesses</span>
           </h2>
         </div>
         <div className="mt-8 grid grid-cols-1 gap-6 md:grid-cols-2">
           {audiences.map(({ icon: Icon, title, points }, i) => (
-            <FadeIn key={title} delay={i * 0.12}>
-              <div className="group relative h-full overflow-hidden rounded-3xl border border-brand-blue/15 bg-white p-7 shadow-md transition-all duration-300 hover:-translate-y-1.5 hover:border-brand-blue/40 hover:shadow-2xl hover:shadow-brand-blue/10">
+            <FadeIn key={title} delay={i * 0.12} className="h-full">
+              <div className="group relative h-full overflow-hidden rounded-3xl border border-brand-blue/15 bg-white p-7 shadow-lg transition-all duration-300 hover:-translate-y-1.5 hover:border-brand-blue/40 hover:shadow-2xl hover:shadow-brand-blue/15">
                 <span
                   aria-hidden="true"
-                  className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-brand-blue via-brand-blue to-navy opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+                  className="absolute inset-x-0 top-0 h-1.5 origin-left scale-x-[0.3] bg-gradient-to-r from-brand-blue via-brand-blue to-navy transition-transform duration-500 group-hover:scale-x-100"
                 />
-                <span className="flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-br from-brand-blue to-navy text-white shadow-md transition-transform duration-300 group-hover:scale-110">
-                  <Icon className="h-7 w-7" aria-hidden="true" />
-                </span>
-                <h3 className="mt-4 text-xl font-bold text-navy">{title}</h3>
-                <ul className="mt-4 space-y-3">
+                <Icon
+                  aria-hidden="true"
+                  className="pointer-events-none absolute -bottom-6 -right-6 h-44 w-44 text-brand-blue/[0.06] transition-all duration-700 group-hover:-rotate-6 group-hover:scale-110 group-hover:text-brand-blue/10"
+                  strokeWidth={1}
+                />
+                <div className="relative flex items-center gap-4">
+                  <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-brand-blue to-navy text-white shadow-lg shadow-brand-blue/30 transition-transform duration-300 group-hover:rotate-3 group-hover:scale-110">
+                    <Icon className="h-7 w-7" aria-hidden="true" />
+                  </span>
+                  <h3 className="text-2xl font-extrabold text-navy">{title}</h3>
+                </div>
+                <ul className="relative mt-6 space-y-2.5">
                   {points.map((p) => (
-                    <li key={p} className="flex items-start gap-3 text-slate-700">
-                      <CheckCircle2
-                        className="mt-0.5 h-5 w-5 shrink-0 text-brand-blue"
-                        aria-hidden="true"
-                      />
+                    <li
+                      key={p}
+                      className="flex items-start gap-3 rounded-xl p-2 text-slate-700 transition-all duration-300 hover:translate-x-1.5 hover:bg-brand-blue-light/70"
+                    >
+                      <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-brand-blue to-navy text-white shadow-sm">
+                        <CheckCircle2 className="h-3.5 w-3.5" aria-hidden="true" />
+                      </span>
                       {p}
                     </li>
                   ))}
@@ -196,39 +244,31 @@ export default function DuctedPage() {
       </Section>
 
       <Section bg="dark">
-        <h2 className="text-3xl font-extrabold text-white md:text-4xl">
-          What&apos;s Included
-        </h2>
-        <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2">
-          {included.map((item, i) => (
-            <FadeIn key={item} delay={i * 0.08}>
-              <div className="group flex h-full items-start gap-3 rounded-2xl bg-white p-4 shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-brand-blue/20">
-                <CheckCircle2
-                  className="mt-0.5 h-5 w-5 shrink-0 text-brand-blue transition-transform duration-300 group-hover:scale-125"
-                  aria-hidden="true"
-                />
-                <span className="text-slate-700">{item}</span>
-              </div>
-            </FadeIn>
-          ))}
+        <div className="mx-auto max-w-2xl text-center">
+          <span className="inline-flex items-center gap-2 rounded-full bg-white py-1.5 pl-1.5 pr-4 text-sm font-semibold text-navy shadow-sm">
+            <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-brand-blue to-navy text-white">
+              <Camera className="h-3.5 w-3.5" aria-hidden="true" />
+            </span>
+            Real Photos, Real Jobs
+          </span>
+          <h2 className="mt-4 text-3xl font-extrabold text-white md:text-4xl">
+            Ducted Servicing <span className="text-brand-blue">In Action</span>
+          </h2>
+          <p className="mt-3 text-slate-300">
+            Photos and clips from recent ducted jobs.
+          </p>
+        </div>
+        <div className="mt-10">
+          <MediaGallery photos={ductedPhotos} clips={ductedClips} />
         </div>
       </Section>
 
-      <Section>
-        <h2 className="text-3xl font-extrabold text-navy md:text-4xl">Why Choose Jon</h2>
-        <div className="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-3">
-          {whyChoose.map(({ icon: Icon, title, body }, i) => (
-            <FadeIn key={title} delay={i * 0.1}>
-              <div className="group flex h-full flex-col items-start rounded-3xl border border-brand-blue/15 bg-white p-6 shadow-md transition-all duration-300 hover:-translate-y-1.5 hover:border-brand-blue/40 hover:shadow-2xl hover:shadow-brand-blue/10">
-                <span className="flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br from-brand-blue to-navy text-white shadow-md transition-transform duration-300 group-hover:scale-110">
-                  <Icon className="h-6 w-6" aria-hidden="true" />
-                </span>
-                <h3 className="mt-3 font-semibold text-navy">{title}</h3>
-                <p className="mt-1 text-sm text-slate-700">{body}</p>
-              </div>
-            </FadeIn>
-          ))}
-        </div>
+      <Section bg="light" decorative>
+        <IncludedSteps items={included} />
+      </Section>
+
+      <Section decorative>
+        <WhyChooseCards items={whyChoose} />
       </Section>
 
       <Section bg="dark">
@@ -256,6 +296,8 @@ export default function DuctedPage() {
           </div>
         </div>
       </Section>
+
+      <ContactSection />
 
       <FAQ items={faqItems} title="Ducted Air Conditioning Questions" />
     </>

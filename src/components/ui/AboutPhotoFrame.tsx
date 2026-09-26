@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import RevealImage from "@/components/ui/RevealImage";
-import { Wrench } from "lucide-react";
+import { MapPin, Wrench } from "lucide-react";
 import { motion } from "framer-motion";
 
 export default function AboutPhotoFrame({
@@ -47,6 +47,26 @@ export default function AboutPhotoFrame({
           <span className="block text-sm font-bold text-navy">Owner-Operated</span>
           <span className="block text-xs text-slate-500">Not a franchise</span>
         </span>
+      </motion.div>
+      <motion.div
+        initial={{ opacity: 0, scale: 0.8 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        viewport={{ once: true, margin: "-40px" }}
+        transition={{ duration: 0.5, delay: 0.7, ease: "easeOut" }}
+        className="absolute -right-3 top-6 hidden sm:block"
+      >
+        <motion.div
+          animate={{ y: [0, -8, 0] }}
+          transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+          className="flex items-center gap-2 rounded-full border border-white/70 bg-white/90 px-3.5 py-2 shadow-xl backdrop-blur-md"
+        >
+          <span className="relative flex h-2 w-2" aria-hidden="true">
+            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
+            <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-400" />
+          </span>
+          <MapPin className="h-3.5 w-3.5 text-brand-blue" aria-hidden="true" />
+          <span className="text-xs font-bold text-navy">Nanango, QLD</span>
+        </motion.div>
       </motion.div>
     </div>
   );

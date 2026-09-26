@@ -9,6 +9,7 @@ import {
   Truck,
   CalendarClock,
   Building2,
+  ThermometerSnowflake,
   type LucideIcon,
 } from "lucide-react";
 
@@ -23,6 +24,7 @@ const serviceIcons: Record<string, LucideIcon> = {
   relocations: Truck,
   "scheduled-maintenance": CalendarClock,
   "motels-real-estate": Building2,
+  "cold-rooms": ThermometerSnowflake,
 };
 
 export default function ServiceIcon({

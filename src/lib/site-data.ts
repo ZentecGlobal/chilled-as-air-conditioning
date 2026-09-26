@@ -48,7 +48,7 @@ export const services: ServiceLink[] = [
     hasDedicatedPage: true,
     href: "/services/ducted-air-conditioning",
     shortDescription:
-      "Whole-space comfort from one system, for homes and businesses across the South Burnett.",
+      "Servicing, repairs and maintenance for ducted systems, for homes and businesses across the South Burnett.",
   },
   {
     name: "Servicing & Cleaning",
@@ -105,6 +105,14 @@ export const services: ServiceLink[] = [
     href: "/services#motels-real-estate",
     shortDescription:
       "Ongoing air conditioning servicing and support for motels, rentals, and real estate managed properties.",
+  },
+  {
+    name: "Cold Rooms",
+    slug: "cold-rooms",
+    hasDedicatedPage: false,
+    href: "/services#cold-rooms",
+    shortDescription:
+      "Servicing, repairs, maintenance and cleaning for cold rooms, including door seals, handles and rollers.",
   },
 ];
 

@@ -3,7 +3,6 @@ import Image from "next/image";
 import RevealImage from "@/components/ui/RevealImage";
 import {
   Camera,
-  CheckCircle2,
   HandCoins,
   MessageCircle,
   Phone,
@@ -16,6 +15,9 @@ import FadeIn from "@/components/ui/FadeIn";
 import Button from "@/components/ui/Button";
 import ServiceIcon from "@/components/ui/ServiceIcon";
 import FAQ from "@/components/ui/FAQ";
+import ContactSection from "@/components/ui/ContactSection";
+import IncludedSteps from "@/components/ui/IncludedSteps";
+import WhyChooseCards from "@/components/ui/WhyChooseCards";
 import DarkSectionDecor from "@/components/ui/DarkSectionDecor";
 import { business } from "@/lib/site-data";
 
@@ -180,42 +182,12 @@ export default function SplitSystemsPage() {
         </Container>
       </section>
 
-      <Section bg="dark">
-        <h2 className="text-3xl font-extrabold text-white md:text-4xl">
-          What&apos;s Included
-        </h2>
-        <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2">
-          {included.map((item, i) => (
-            <FadeIn key={item} delay={i * 0.08}>
-              <div className="h-full group flex items-start gap-3 rounded-2xl bg-white p-4 shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-brand-blue/20">
-              <CheckCircle2
-                className="mt-0.5 h-5 w-5 shrink-0 text-brand-blue transition-transform duration-300 group-hover:scale-125"
-                aria-hidden="true"
-              />
-              <span className="text-slate-700">{item}</span>
-            </div>
-            </FadeIn>
-          ))}
-        </div>
+      <Section bg="dark" decorative>
+        <IncludedSteps items={included} dark={true} />
       </Section>
 
-      <Section>
-        <h2 className="text-3xl font-extrabold text-navy md:text-4xl">
-          Why Choose Jon
-        </h2>
-        <div className="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-3">
-          {whyChoose.map(({ icon: Icon, title, body }, i) => (
-            <FadeIn key={title} delay={i * 0.1}>
-              <div className="group flex h-full flex-col items-start rounded-3xl border border-brand-blue/15 bg-white p-6 shadow-md transition-all duration-300 hover:-translate-y-1.5 hover:border-brand-blue/40 hover:shadow-2xl hover:shadow-brand-blue/10">
-                <span className="flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br from-brand-blue to-navy text-white shadow-md transition-transform duration-300 group-hover:scale-110">
-                  <Icon className="h-6 w-6" aria-hidden="true" />
-                </span>
-                <h3 className="mt-3 font-semibold text-navy">{title}</h3>
-                <p className="mt-1 text-sm text-slate-700">{body}</p>
-              </div>
-            </FadeIn>
-          ))}
-        </div>
+      <Section decorative>
+        <WhyChooseCards items={whyChoose} />
       </Section>
 
       <Section bg="dark">
@@ -248,6 +220,8 @@ export default function SplitSystemsPage() {
           </div>
         </div>
       </Section>
+
+      <ContactSection />
 
       <FAQ items={faqItems} title="Split System Questions" />
     </>

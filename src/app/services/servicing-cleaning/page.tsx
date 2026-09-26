@@ -15,10 +15,12 @@ import Container from "@/components/ui/Container";
 import FadeIn from "@/components/ui/FadeIn";
 import Button from "@/components/ui/Button";
 import ServiceIcon from "@/components/ui/ServiceIcon";
-import { type CarouselSlide } from "@/components/ui/Carousel";
 import WorkMarquee, { type MarqueePhoto } from "@/components/ui/WorkMarquee";
 import FAQ from "@/components/ui/FAQ";
-import VideoShowcase from "@/components/ui/VideoShowcase";
+import ContactSection from "@/components/ui/ContactSection";
+import IncludedSteps from "@/components/ui/IncludedSteps";
+import WhyChooseCards from "@/components/ui/WhyChooseCards";
+import MediaGallery from "@/components/ui/MediaGallery";
 import DarkSectionDecor from "@/components/ui/DarkSectionDecor";
 import { business } from "@/lib/site-data";
 
@@ -142,32 +144,35 @@ const faultFindingPhotos: MarqueePhoto[] = faultFindingFilenames.map(
   }),
 );
 
-const jobVideoSlides: CarouselSlide[] = [
+const jobPhotos = [
   {
-    type: "video",
-    src: "/images/unsorted-general/20260527_092231.mp4",
-    caption: "Recent job video, Chilled As Air Conditioning",
+    src: "/images/unsorted-general/20260227_172237.jpg",
+    alt: "Jon from Chilled As Air Conditioning performing a split system deep clean",
+    caption: "Deep clean in progress",
   },
   {
-    type: "video",
-    src: "/images/unsorted-general/20260527_092313.mp4",
-    caption: "Recent job video, Chilled As Air Conditioning",
+    src: "/images/servicing-cleaning/deep-cleans/IMG_0010.jpg",
+    alt: "Indoor split system fitted with a protective catch-bag ready for a deep clean wash-down",
+    caption: "Ready for a wash-down",
   },
   {
-    type: "video",
-    src: "/images/unsorted-general/20260709_093051.mp4",
-    caption: "Recent job video, Chilled As Air Conditioning",
+    src: "/images/servicing-cleaning/deep-cleans/IMG_0015.jpg",
+    alt: "Heavily soiled air conditioner filters removed for washing during a deep clean",
+    caption: "Filters before washing",
   },
   {
-    type: "video",
-    src: "/images/unsorted-general/YouCut_20260518_193458236.mp4",
-    caption: "Recent job video, Chilled As Air Conditioning",
+    src: "/images/servicing-cleaning/deep-cleans/IMG_0019.jpg",
+    alt: "Close-up of a dirty indoor coil before a split system deep clean",
+    caption: "Dirty coil, before",
   },
-  {
-    type: "video",
-    src: "/images/unsorted-general/YouCut_20260527_112601390.mp4",
-    caption: "Recent job video, Chilled As Air Conditioning",
-  },
+];
+
+const jobClips = [
+  { src: "/videos/job-clip-1.mp4", label: "Split system deep clean, clip one", caption: "Deep clean, clip 1", poster: "/images/servicing-media/poster-clip-1.jpg" },
+  { src: "/videos/job-clip-2.mp4", label: "Split system deep clean, clip two", caption: "Deep clean, clip 2", poster: "/images/servicing-media/poster-clip-2.jpg" },
+  { src: "/videos/job-clip-3.mp4", label: "Split system service, clip three", caption: "On the job, clip 3", poster: "/images/servicing-media/poster-clip-3.jpg" },
+  { src: "/videos/job-clip-4.mp4", label: "Before and after a split system clean", caption: "Before and after", poster: "/images/servicing-media/poster-clip-4.jpg" },
+  { src: "/videos/job-clip-5.mp4", label: "Split system wash-down", caption: "Wash-down", poster: "/images/servicing-media/poster-clip-5.jpg" },
 ];
 
 const included = [
@@ -256,23 +261,8 @@ export default function ServicingCleaningPage() {
         </div>
       </Section>
 
-      <Section>
-        <h2 className="text-3xl font-extrabold text-navy md:text-4xl">
-          What&apos;s Included
-        </h2>
-        <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2">
-          {included.map((item, i) => (
-            <FadeIn key={item} delay={i * 0.08}>
-              <div className="group flex h-full items-start gap-3 rounded-2xl border border-brand-blue/15 bg-white p-4 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-brand-blue/40 hover:shadow-lg hover:shadow-brand-blue/10">
-              <CheckCircle2
-                className="mt-0.5 h-5 w-5 shrink-0 text-brand-blue transition-transform duration-300 group-hover:scale-125"
-                aria-hidden="true"
-              />
-              <span className="text-slate-700">{item}</span>
-            </div>
-            </FadeIn>
-          ))}
-        </div>
+      <Section bg="light" decorative>
+        <IncludedSteps items={included} dark={false} />
       </Section>
 
       <section className="relative overflow-hidden bg-gradient-to-br from-navy-dark via-navy to-navy-dark py-14 md:py-20">
@@ -343,17 +333,14 @@ export default function ServicingCleaningPage() {
               Real Footage, Real Jobs
             </span>
             <h2 className="mt-4 text-3xl font-extrabold text-white md:text-4xl">
-              Recent <span className="text-brand-blue">Job Videos</span>
+              Recent <span className="text-brand-blue">Jobs</span>
             </h2>
             <p className="mt-3 text-slate-300">
-              A few clips from recent jobs out in the field.
+              Photos and clips from recent jobs out in the field.
             </p>
           </FadeIn>
           <div className="relative mt-10">
-            <VideoShowcase
-              landscape={jobVideoSlides.slice(0, 3).map((v) => ({ src: v.src, label: "Recent job video, Chilled As Air Conditioning" }))}
-              portrait={jobVideoSlides.slice(3, 5).map((v) => ({ src: v.src, label: "Recent job video, Chilled As Air Conditioning" }))}
-            />
+            <MediaGallery photos={jobPhotos} clips={jobClips} />
           </div>
         </Container>
       </section>
@@ -415,23 +402,8 @@ export default function ServicingCleaningPage() {
         </div>
       </Section>
 
-      <Section>
-        <h2 className="text-3xl font-extrabold text-navy md:text-4xl">
-          Why Choose Jon
-        </h2>
-        <div className="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-3">
-          {whyChoose.map(({ icon: Icon, title, body }, i) => (
-            <FadeIn key={title} delay={i * 0.1}>
-              <div className="group flex h-full flex-col items-start rounded-3xl border border-brand-blue/15 bg-white p-6 shadow-md transition-all duration-300 hover:-translate-y-1.5 hover:border-brand-blue/40 hover:shadow-2xl hover:shadow-brand-blue/10">
-                <span className="flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br from-brand-blue to-navy text-white shadow-md transition-transform duration-300 group-hover:scale-110">
-                  <Icon className="h-6 w-6" aria-hidden="true" />
-                </span>
-                <h3 className="mt-3 font-semibold text-navy">{title}</h3>
-                <p className="mt-1 text-sm text-slate-700">{body}</p>
-              </div>
-            </FadeIn>
-          ))}
-        </div>
+      <Section decorative>
+        <WhyChooseCards items={whyChoose} />
       </Section>
 
       <Section bg="dark">
@@ -464,6 +436,8 @@ export default function ServicingCleaningPage() {
           </div>
         </div>
       </Section>
+
+      <ContactSection />
 
       <FAQ items={faqItems} title="Servicing & Cleaning Questions" />
     </>
