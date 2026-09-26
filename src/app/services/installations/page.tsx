@@ -201,37 +201,6 @@ export default function InstallationsPage() {
         <WhyChooseCards items={whyChoose} />
       </Section>
 
-      <Section bg="dark">
-        <div className="mx-auto max-w-2xl text-center">
-          <h2 className="text-3xl font-extrabold text-white md:text-4xl">
-            Get a Free Quote
-          </h2>
-          <p className="mt-2 text-slate-300">
-            Call me to talk through what you need, or book in a time for me
-            to come take a look.
-          </p>
-          <div className="mt-6 flex flex-wrap justify-center gap-4">
-            <a
-              href={business.phoneHref}
-              className="group inline-flex items-center gap-2 rounded-xl border-2 border-navy bg-white px-6 py-3 font-semibold text-navy shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:bg-navy hover:text-white hover:shadow-md"
-            >
-              <Phone
-                className="h-4 w-4 text-navy transition-colors duration-200 group-hover:text-white"
-                aria-hidden="true"
-              />
-              Call Jon: {business.phoneDisplay}
-            </a>
-            <Button
-              href="/contact"
-              variant="secondary"
-              icon={<Send className="h-4 w-4" aria-hidden="true" />}
-            >
-              Request a Free Quote
-            </Button>
-          </div>
-        </div>
-      </Section>
-
       <ContactSection />
 
       <FAQ items={faqItems} title="Installation Questions" />
